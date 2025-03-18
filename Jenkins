@@ -2,16 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Planning') {
+        stage('checkout') {
             steps {
-                echo 'Hello World'
+                sh 'sleep 30'
             }
         }
-        stage('Re-Release') {
+        stage('Build & Sonar') {
+            parallel {
+                stage ('build') {
             steps {
-                echo 'Hello World'
+                sh 'sleep 30'
             }
         }
+        stage ('sonar') {
+            steps {
+                sh 'sleep 30'
+            }
+        }
+            }
         stage('Success') {
             steps {
                 echo 'Hello World'
