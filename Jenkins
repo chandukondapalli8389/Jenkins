@@ -15,7 +15,13 @@ pipeline {
         stage('Success') {
             steps {
                 echo 'Hello World'
+            }
+        }
+        stage('Done') {
+            steps {
+                echo 'Hello World'
             }    
+        }        
         }
    }   
 }
