@@ -11,25 +11,34 @@ pipeline {
             parallel {
                 stage ('build') {
             steps {
-                sh 'sleep 30'
+                sh 'sleep 15'
             }
         }
         stage ('sonar') {
             steps {
-                sh 'sleep 30'
+                sh 'sleep 10'
             }
         }
             }
         }    
-        stage('Success') {
+        stage('Development  & Security Scanes') {
+            parallel {
+                stage ('Development') {
             steps {
-                echo 'Hello World'
+                sh 'sleep 10'
             }
         }
-        stage('Done') {
+        stage ('Security Scans') {
             steps {
-                echo 'Hello World'
-            }    
+                sh 'sleep 5'
+            }
         }
-   }   
+            }    
+        }    
+        stage('Functional testing') {
+            steps {
+                sh 'sleep 10'
+            }
+        }
+    }   
 }
